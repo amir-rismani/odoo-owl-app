@@ -1,60 +1,37 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="odoo_owl_app.list">
-      <field name="name">odoo_owl_app list</field>
-      <field name="model">odoo_owl_app.odoo_owl_app</field>
+    <record id="record_action" model="ir.actions.act_window">
+      <field name="name">Odoo OWL Todo Application</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">odoo_owl_app.todo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record id="odoo_owl_todo_form" model="ir.ui.view">
+      <field name="name">odoo_owl_app.todo.form</field>
+      <field name="model">odoo_owl_app.todo</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="text"/>
+              <field name="is_completed"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="odoo_owl_todo_tree" model="ir.ui.view">
+      <field name="name">odoo_owl_app.todo.tree</field>
+      <field name="model">odoo_owl_app.todo</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="text"/>
+          <field name="is_completed"/>
         </tree>
       </field>
     </record>
--->
-
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="odoo_owl_app.action_window">
-      <field name="name">odoo_owl_app window</field>
-      <field name="res_model">odoo_owl_app.odoo_owl_app</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="odoo_owl_app.action_server">
-      <field name="name">odoo_owl_app server</field>
-      <field name="model_id" ref="model_odoo_owl_app_odoo_owl_app"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-<!--
-    <menuitem name="odoo_owl_app" id="odoo_owl_app.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="odoo_owl_app.menu_1" parent="odoo_owl_app.menu_root"/>
-    <menuitem name="Menu 2" id="odoo_owl_app.menu_2" parent="odoo_owl_app.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="odoo_owl_app.menu_1_list" parent="odoo_owl_app.menu_1"
-              action="odoo_owl_app.action_window"/>
-    <menuitem name="Server to list" id="odoo_owl_app" parent="odoo_owl_app.menu_2"
-              action="odoo_owl_app.action_server"/>
--->
+    <menuitem id="parent_menu_root" name="Odoo OWl">
+      <menuitem id="menu_id" name="Todo Application" action="record_action" sequence="10"/>
+    </menuitem>
   </data>
 </odoo>
