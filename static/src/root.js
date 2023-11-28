@@ -38,8 +38,9 @@ export class Root extends Component {
             this.todos[index].is_completed = !this.todos[index].is_completed
         }
 
-        this.handleEdit = (id) => {
-            console.log('edit', id)
+        this.handleEdit = (id, title) => {
+            const index = this.todos.findIndex(todo => todo.id === parseInt(id))
+            this.todos[index].title = title
         }
 
         this.handleRemove = (id) => {

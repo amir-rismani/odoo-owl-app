@@ -1,0 +1,13 @@
+.todo {
+    &.completed {
+        .todo__content {
+            text-decoration: line-through;
+            color: $o-color-4;
+        }
+    }
+
+    input {
+        padding: .7rem;
+        background-color: $o-color-5;
+    }
+}

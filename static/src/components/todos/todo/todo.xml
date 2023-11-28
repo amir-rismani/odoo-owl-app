@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
     <t t-name="odoo_owl_app.todo" owl="1">
-        <div class="todo d-flex justify-content-between align-items-center gap-3 bg-secondary p-4 rounded my-3">
+        <div t-attf-class="todo d-flex justify-content-between align-items-center gap-3 bg-secondary p-4 rounded my-3 {{props.todo.is_completed ? 'completed' : ''}}">
             <div class="todo__check">
                 <input type="checkbox" t-att-checked="props.todo.is_completed" t-att-value="props.todo.id" t-on-change="props.handleChangeState"/>
             </div>
             <div class="todo__content flex-grow-1">
-                <t t-esc="props.todo.title"/>
+                <t t-if="state.isEdit">
+                    <input type="text" t-att-value="props.todo.title" class="form-control ms-2" t-on-keyup="(ev)=>editTodo(ev,props.todo.id)" t-ref="editInput"/>
+                </t>
+                <t t-else="">
+                    <t t-esc="props.todo.title"/>
+                </t>
             </div>
             <div class="todo__action d-flex justify-content-between align-items-center gap-3">
-                <span class="fa fa-pencil-square-o fa-lg text-primary text-opacity-75 cursor-pointer" t-on-click="()=>props.handleEdit(props.todo.id)"/>
+                <span class="fa fa-pencil-square-o fa-lg text-primary text-opacity-75 cursor-pointer" t-on-click="enableEditMode"/>
                 <span class="fa fa-trash-o fa-lg text-danger text-opacity-75 cursor-pointer" t-on-click="()=>props.handleRemove(props.todo.id)"/>
             </div>
         </div>

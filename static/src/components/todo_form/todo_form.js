@@ -15,8 +15,6 @@ export class TodoForm extends Component {
 
         }
         onMounted(() => {
-            // do something here
-            console.log('onmounted')
             this.ref.el.focus();
         });
     }
