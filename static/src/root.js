@@ -45,6 +45,8 @@ export class Root extends Component {
 
         this.handleRemove = (id) => {
             console.log('remove', id)
+            const index = this.todos.findIndex(todo => todo.id === parseInt(id))
+            this.todos.splice(index, 1);
         }
 
         this.onAdd = (title) => {

@@ -5,7 +5,7 @@
             <form class="d-flex" t-on-submit="handleSubmit">
                 <input class="form-control ms-2" type="text" placeholder="Add a new task" t-model="state.input" t-ref="input"/>
                 <button class="btn btn-primary d-flex justify-content-center align-items-center" type="submit">Add
-                    <span class="fa fa-plus-square-o me-1"></span>
+                    <span class="fa fa-plus-circle me-1"></span>
                 </button>
             </form>
         </div>
