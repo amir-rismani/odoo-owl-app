@@ -1,4 +1,12 @@
+body {
+    // background: #0D0D0D;
+    // color: white;
+}
+
 #root {
-    background: black;
     height: 100vh;
+
+    .btn {
+        background-color: $o-color-3 !important;
+    }
 }

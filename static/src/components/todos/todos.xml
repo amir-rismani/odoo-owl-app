@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="odoo_owl_app.todos" owl="1">
+        <div id="todos" class="my-5">
+            <div class="todos__meta d-flex justify-content-between">
+                <span>
+                    <span class="text-primary fw-bold">Tasks created:</span>
+                    <span class="badge badge bg-secondary rounded-pill me-2 fs-6" t-esc="getTodosNumber()"/>
+                </span>
+                <span>
+                    <span class="text-primary fw-bold">Completed:</span>
+                    <span class="badge badge bg-secondary rounded-pill me-2 fs-6">
+                        <t  t-esc="getCompletedTodosNumber()"/> of
+                        <t  t-esc="getTodosNumber()"/>
+                    </span>
+                </span>
+            </div>
+            <div class="todos__list">
+                <t t-foreach="props.todos" t-as="todo" t-key="todo.id">
+                    <Todo todo="todo" handleChangeState="props.handleChangeState" handleEdit="props.handleEdit" handleRemove="props.handleRemove"/>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

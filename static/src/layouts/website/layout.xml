@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
     <t t-name="odoo_owl_app.website_layout" owl="1">
-        <div class="o-action">
-            <div class="o-content" t-att-class="props.contentClass">
-                <Navbar/>
-                <t t-slot="default"/>
-                <Footer/>
+        <div class="o-action container">
+            <div class="o-content row justify-content-md-center" t-att-class="props.contentClass">
+                <div class="col-12 col-md-7">
+                    <Navbar todosNumber="this.props.todosNumber"/>
+                    <t t-slot="default"/>
+                    <Footer/>
+                </div>
             </div>
         </div>
     </t>

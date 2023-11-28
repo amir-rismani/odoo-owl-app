@@ -1,0 +1,19 @@
+$theme-colors: (
+    "primary": $o-color-1,
+    "secondary": $o-color-6
+);
+
+// Settings for the `<body>` element.
+$body-bg: $o-color-5 !default;
+$body-color: $o-color-2 !default;
+
+// Border
+$border-radius: .5rem !default;
+$border-width: 0px !default;
+
+// Buttons + Forms
+$input-btn-padding-y: 1rem !default;
+$input-btn-padding-x: .75rem !default;
+
+$input-placeholder-color: $o-color-4 !default;
+$input-bg: $o-color-6 !default;

@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'theme_common'],
 
     # always loaded
     'data': [
@@ -30,11 +30,18 @@
     ],
     'assets': {
         'odoo_owl_app.assets': [
+            # required for fa icons
+            'web/static/src/libs/fontawesome/css/font-awesome.css',
+            
+            'odoo_owl_app/static/src/scss/primary_variables.scss',
+            'odoo_owl_app/static/src/scss/bootstrap_overridden.scss',
             ('include', 'web._assets_helpers'),
             'web/static/src/scss/pre_variables.scss',
             'web/static/lib/bootstrap/scss/_variables.scss',
             ('include', 'web._assets_bootstrap'),
             ('include', 'web._assets_core'),
+            
+            
             'odoo_owl_app/static/src/**/*',
         ],
     },
