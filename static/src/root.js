@@ -33,7 +33,9 @@ export class Root extends Component {
         this.todos = useState(todos)
 
         this.handleChangeState = (event) => {
-            console.log('change event', event.target.value)
+            const id = event.target.value;
+            const index = this.todos.findIndex(todo => todo.id === parseInt(id))
+            this.todos[index].is_completed = !this.todos[index].is_completed
         }
 
         this.handleEdit = (id) => {
@@ -51,7 +53,6 @@ export class Root extends Component {
                 title,
                 is_completed: false
             }
-            console.log(todo)
             this.todos.push(todo)
         }
     }
