@@ -42,7 +42,7 @@
             ('include', 'web._assets_core'),
             
             
-            'odoo_owl_app/static/src/**/*',
+            'odoo_owl_app/static/src/odoo_owl_app/**/*',
         ],
     },
     # only loaded in demonstration mode

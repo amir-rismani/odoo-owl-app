@@ -23,7 +23,7 @@
                 </t>
                 <t t-else="">
                     <div class="message d-flex flex-column justify-content-between align-items-center p-5">
-                        <img src="/odoo_owl_app/static/src/assets/images/notodos.svg" class="mb-3"/>
+                        <img src="/odoo_owl_app/static/src/odoo_owl_app/assets/images/notodos.svg" class="mb-3"/>
                         <p class="fw-bold">You don't have tasks registered yet</p>
                         <p>Create tasks and organize your to-do items</p>
                     </div>

@@ -4,7 +4,7 @@
         <div class="row">
             <nav class="navbar bg-body-tertiary col-12 justify-content-center my-5">
                 <a class="navbar-brand" href="#">
-                    <img src="/odoo_owl_app/static/src/assets/images/Logo.svg" alt="Logo" class="d-inline-block align-text-top"/>
+                    <img src="/odoo_owl_app/static/src/odoo_owl_app/assets/images/Logo.svg" alt="Logo" class="d-inline-block align-text-top"/>
                 </a>
                 <span class="fs-6 badge text-bg-primary rounded-pill me-2" t-esc="this.props.todosNumber"/>
             </nav>

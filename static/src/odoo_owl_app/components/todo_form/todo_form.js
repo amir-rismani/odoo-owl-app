@@ -9,10 +9,11 @@ export class TodoForm extends Component {
 
         this.handleSubmit = (ev) => {
             ev.preventDefault();
-            this.props.onAdd(this.state.input);
-            this.state.input = ""
-            this.ref.el.focus();
-
+            if (this.state.input) {
+                this.props.onAdd(this.state.input);
+                this.state.input = ""
+                this.ref.el.focus();
+            }
         }
         onMounted(() => {
             this.ref.el.focus();
