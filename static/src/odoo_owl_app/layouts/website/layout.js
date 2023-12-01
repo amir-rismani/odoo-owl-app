@@ -5,5 +5,5 @@ import { Navbar } from "./Navbar/navbar";
 export class WebsiteLayout extends Component {
     static template = "odoo_owl_app.website_layout";
     static components = { Navbar };
-    static props = ['todosNumber'];
+    static props = { todosNumber: Number, slots: Object, };
 }
