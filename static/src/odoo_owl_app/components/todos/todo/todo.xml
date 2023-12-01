@@ -11,7 +11,7 @@
                 </t>
                 <t t-else="">
                     <label t-attf-for="todo-state-#{props.todo.id}">
-                        <t t-esc="props.todo.title"/>
+                        <t t-esc="props.todo.text"/>
                     </label>
                 </t>
             </div>

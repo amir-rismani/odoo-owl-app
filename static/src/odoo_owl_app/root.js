@@ -1,6 +1,6 @@
 /** @odoo-module */
 
-import { Component, useState, useSubEnv, onWillStart } from "@odoo/owl";
+import { Component, useState, onWillStart } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 
@@ -44,5 +44,10 @@ export class Root extends Component {
             }
             this.todos.push(todo)
         };
+
+        onWillStart(async () => {
+            this.todos = await this.orm.searchRead(this.model, [])
+            console.log(this.todos)
+        })
     }
 }

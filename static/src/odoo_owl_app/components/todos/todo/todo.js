@@ -3,7 +3,7 @@ import { Component, useState, useRef } from "@odoo/owl";
 export class Todo extends Component {
     static template = "odoo_owl_app.todo";
     static components = {};
-    static props = ['handleChangeState', 'handleEdit', 'handleRemove'];
+    static props = ['todo', 'handleChangeState', 'handleEdit', 'handleRemove'];
 
     setup() {
         this.state = useState({ isEdit: false });

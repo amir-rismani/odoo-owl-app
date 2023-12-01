@@ -1,11 +1,11 @@
 /** @odoo-module */
 
-import { whenReady, mount } from "@odoo/owl";
+import { whenReady, } from "@odoo/owl";
+import { mountComponent } from "@web/env";
 import { templates } from "@web/core/assets";
 import { Root } from "./root";
 
-whenReady(() => mount(Root, document.querySelector('#root'), {
-    env: {},
+whenReady(() => mountComponent(Root, document.querySelector('#root'), {
     templates,
     dev: true,
     name: "Owl Demo App",
