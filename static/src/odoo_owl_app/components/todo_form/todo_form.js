@@ -2,7 +2,7 @@
 import { Component, useState, useRef, onMounted } from "@odoo/owl";
 export class TodoForm extends Component {
     static template = "odoo_owl_app.todo_form";
-    static props = ['onAdd']
+    static props = ['handleCreate']
     setup() {
         this.state = useState({
             todo: {
@@ -15,17 +15,15 @@ export class TodoForm extends Component {
 
         this.handleSubmit = (ev) => {
             ev.preventDefault();
-            let text = this.state.todo.text;
-            if (text) {
-                this.props.onAdd(this.state.todo);
-                text = ""
+            if (this.state.todo.text) {
+                this.props.handleCreate(this.state.todo);
+                this.state.todo.text = ""
                 this.ref.el.focus();
             }
         }
+
         onMounted(() => {
             this.ref.el.focus();
         });
     }
-
-
 }

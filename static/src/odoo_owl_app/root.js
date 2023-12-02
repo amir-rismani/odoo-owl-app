@@ -19,38 +19,32 @@ export class Root extends Component {
         this.model = 'odoo_owl_app.todo';
 
         this.handleChangeState = async (event) => {
-            const id = event.target.value;
-            await this.orm.write(this.model, [Number(id)], { is_completed: event.target.checked });
-            this.refreshTodos();
-        };
+            const id = Number(event.target.value);
+            await this.orm.write(this.model, [id], { is_completed: event.target.checked });
+            this.getAllTodos();
+        }
 
         this.handleEdit = async (id, text) => {
-            await this.orm.write(this.model, [Number(id)], { text });
-            this.refreshTodos();
-
-        };
+            await this.orm.write(this.model, [id], { text });
+            this.getAllTodos();
+        }
 
         this.handleRemove = async (id) => {
             await this.orm.unlink(this.model, [id]);
-            this.refreshTodos();
-        };
-
-        this.onAdd = async (todo) => {
-            await this.orm.create(this.model, [todo]);
-            this.refreshTodos();
-        };
-
-        this.getAllTodos = async () => {
-            return await this.orm.searchRead(this.model, []);
+            this.getAllTodos();
         }
 
-        this.refreshTodos = async () => {
-            this.state.todos = await this.getAllTodos();
-            console.log(this.state.todos)
+        this.handleCreate = async (todo) => {
+            await this.orm.create(this.model, [todo]);
+            this.getAllTodos();
+        }
+
+        this.getAllTodos = async () => {
+            this.state.todos = await this.orm.searchRead(this.model, []);
         }
 
         onWillStart(() => {
-            this.refreshTodos();
+            this.getAllTodos();
         })
     }
 }
