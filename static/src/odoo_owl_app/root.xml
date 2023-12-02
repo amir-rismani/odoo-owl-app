@@ -3,7 +3,7 @@
     <t t-name="odoo_owl_app.root">
         <WebsiteLayout todosNumber="state.todos.length">
             <main>
-                <TodoForm saveTodo="handleCreate"/>
+                <TodoForm handleCreate="handleCreate"/>
                 <Todos todos="state.todos" handleChangeState="handleChangeState" handleEdit="handleEdit" handleRemove="handleRemove"/>
             </main>
         </WebsiteLayout>
