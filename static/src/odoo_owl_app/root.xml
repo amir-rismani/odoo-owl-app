@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
     <t t-name="odoo_owl_app.root">
-        <WebsiteLayout todosNumber="this.todos.length">
+        <WebsiteLayout todosNumber="state.todos.length">
             <main>
                 <TodoForm onAdd.bind="onAdd"/>
-                <Todos todos="todos" handleChangeState.bind="handleChangeState" handleEdit.bind="handleEdit" handleRemove.bind="handleRemove"/>
+                <Todos todos="state.todos" handleChangeState.bind="handleChangeState" handleEdit.bind="handleEdit" handleRemove.bind="handleRemove"/>
             </main>
         </WebsiteLayout>
     </t>

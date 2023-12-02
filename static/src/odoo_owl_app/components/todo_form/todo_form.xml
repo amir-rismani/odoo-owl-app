@@ -3,7 +3,7 @@
     <t t-name="odoo_owl_app.todo_form" owl="1">
         <div id="todo-form">
             <form class="d-flex" t-on-submit="handleSubmit">
-                <input class="form-control ms-2" type="text" placeholder="Add a new task" t-model="state.input" t-ref="input"/>
+                <input class="form-control ms-2" type="text" placeholder="Add a new task" t-model="state.todo.text" t-ref="input"/>
                 <button class="btn btn-primary d-flex justify-content-center align-items-center" type="submit">Add
                     <span class="fa fa-plus-circle me-1"></span>
                 </button>

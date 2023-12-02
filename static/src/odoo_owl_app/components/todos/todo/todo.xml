@@ -7,7 +7,7 @@
             </div>
             <div class="todo__content flex-grow-1">
                 <t t-if="state.isEdit">
-                    <input type="text" t-att-value="props.todo.title" class="form-control ms-2" t-on-keyup="(ev)=>editTodo(ev,props.todo.id)" t-ref="editInput"/>
+                    <input type="text" t-att-value="props.todo.text" class="form-control ms-2" t-on-keyup="(ev)=>editTodo(ev,props.todo.id)" t-ref="editInput"/>
                 </t>
                 <t t-else="">
                     <label t-attf-for="todo-state-#{props.todo.id}">

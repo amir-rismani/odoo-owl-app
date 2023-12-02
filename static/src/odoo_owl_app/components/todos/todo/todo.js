@@ -6,7 +6,9 @@ export class Todo extends Component {
     static props = ['todo', 'handleChangeState', 'handleEdit', 'handleRemove'];
 
     setup() {
-        this.state = useState({ isEdit: false });
+        this.state = useState({
+            isEdit: false
+        });
         this.ref = useRef("editInput");
         this.enableEditMode = () => {
             this.state.isEdit = true;

@@ -4,14 +4,21 @@ export class TodoForm extends Component {
     static template = "odoo_owl_app.todo_form";
     static props = ['onAdd']
     setup() {
-        this.state = useState({ input: "" })
+        this.state = useState({
+            todo: {
+                id: new Date().getTime(),
+                text: '',
+                is_completed: false
+            },
+        })
         this.ref = useRef('input');
 
         this.handleSubmit = (ev) => {
             ev.preventDefault();
-            if (this.state.input) {
-                this.props.onAdd(this.state.input);
-                this.state.input = ""
+            let text = this.state.todo.text;
+            if (text) {
+                this.props.onAdd(this.state.todo);
+                text = ""
                 this.ref.el.focus();
             }
         }

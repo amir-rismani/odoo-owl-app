@@ -1,7 +1,7 @@
 .todo {
     &.completed {
         .todo__content {
-            text-decoration: line-through;
+            text-decoration: line-through !important;
             color: $o-color-4;
         }
     }

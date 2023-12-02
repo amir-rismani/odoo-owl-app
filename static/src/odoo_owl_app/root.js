@@ -14,40 +14,43 @@ export class Root extends Component {
     static props = {};
 
     setup() {
-        this.todos = useState([]);
+        this.state = useState({ todos: [] });
         this.orm = useService("orm");
         this.model = 'odoo_owl_app.todo';
 
-        this.handleChangeState = (event) => {
+        this.handleChangeState = async (event) => {
             const id = event.target.value;
-            const index = this.todos.findIndex(todo => todo.id === parseInt(id))
-            this.todos[index].is_completed = !this.todos[index].is_completed
+            await this.orm.write(this.model, [Number(id)], { is_completed: event.target.checked });
+            this.refreshTodos();
         };
 
-        this.handleEdit = (id, title) => {
-            const index = this.todos.findIndex(todo => todo.id === parseInt(id))
-            this.todos[index].title = title
+        this.handleEdit = async (id, text) => {
+            await this.orm.write(this.model, [Number(id)], { text });
+            this.refreshTodos();
+
         };
 
-        this.handleRemove = (id) => {
-            console.log('remove', id)
-            const index = this.todos.findIndex(todo => todo.id === parseInt(id))
-            this.todos.splice(index, 1);
+        this.handleRemove = async (id) => {
+            await this.orm.unlink(this.model, [id]);
+            this.refreshTodos();
         };
 
-        this.onAdd = (title) => {
-            const todo = {
-                userId: 1,
-                id: new Date().getTime(),
-                title,
-                is_completed: false
-            }
-            this.todos.push(todo)
+        this.onAdd = async (todo) => {
+            await this.orm.create(this.model, [todo]);
+            this.refreshTodos();
         };
 
-        onWillStart(async () => {
-            this.todos = await this.orm.searchRead(this.model, [])
-            console.log(this.todos)
+        this.getAllTodos = async () => {
+            return await this.orm.searchRead(this.model, []);
+        }
+
+        this.refreshTodos = async () => {
+            this.state.todos = await this.getAllTodos();
+            console.log(this.state.todos)
+        }
+
+        onWillStart(() => {
+            this.refreshTodos();
         })
     }
 }
